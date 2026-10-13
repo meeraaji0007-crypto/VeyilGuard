@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#153d2b" />
+<title>VeyilGuard — Heat Safety for Outdoor Workers</title>
+<style>
+:root{--forest:#153d2b;--green:#236344;--mint:#e8f4e9;--cream:#fbf8ef;--sun:#f4b942;--orange:#df7138;--ink:#1f3027;--muted:#66756b;--white:#fff;--line:#e2e8df;--shadow:0 12px 35px rgba(24,61,42,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,select{font:inherit}button{cursor:pointer}.wrap{max-width:1120px;margin:auto;padding:0 24px}
+header{background:var(--forest);color:white;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,.12)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.4px;font-size:1.25rem}.brandmark{width:40px;height:40px;border-radius:13px;background:var(--sun);display:grid;place-items:center;color:var(--forest);font-size:22px}.brand small{display:block;font-weight:500;font-size:.72rem;color:#c6d8ca;letter-spacing:.3px}.navright{display:flex;align-items:center;gap:10px}.demo-pill{font-size:.75rem;border:1px solid #73917d;padding:7px 10px;border-radius:999px;color:#e1eee3}.lang{background:#fff;color:var(--forest);border:0;padding:9px 13px;border-radius:10px;font-weight:750}
+.hero{background:var(--forest);color:white;padding:54px 0 66px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:350px;height:350px;border:1px solid rgba(244,185,66,.24);border-radius:50%;right:-90px;top:-140px;box-shadow:0 0 0 35px rgba(244,185,66,.035),0 0 0 75px rgba(244,185,66,.025)}.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:36px;align-items:center;position:relative;z-index:1}.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--sun);font-weight:850}.hero h1{font-size:clamp(2.4rem,5vw,4.25rem);line-height:1.04;letter-spacing:-2px;margin:14px 0 18px;max-width:690px}.hero p{color:#d8e6da;font-size:1.08rem;max-width:630px;margin:0 0 25px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn-primary,.btn-light{border:0;border-radius:12px;padding:13px 17px;font-weight:800}.btn-primary{background:var(--sun);color:var(--forest)}.btn-light{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.25)}.sun-card{background:#214b35;border:1px solid #41684e;border-radius:24px;padding:26px;text-align:center;max-width:300px;justify-self:end;width:100%}.sun-icon{font-size:4.2rem;line-height:1.2}.sun-card strong{display:block;font-size:1.15rem;margin-top:8px}.sun-card span{font-size:.86rem;color:#d3e1d5}
+main{padding:34px 0 60px}.notice{display:flex;gap:12px;align-items:flex-start;background:#fff6df;border:1px solid #f1d78e;color:#654a12;padding:13px 16px;border-radius:13px;font-size:.88rem;margin-bottom:25px}.notice b{white-space:nowrap}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:32px 0 16px}.section-head h2{font-size:1.45rem;letter-spacing:-.5px;margin:0}.section-head p{color:var(--muted);font-size:.88rem;margin:4px 0 0}.controls{display:flex;gap:10px;flex-wrap:wrap}.control{background:white;border:1px solid var(--line);border-radius:11px;padding:10px 12px;color:var(--ink);min-width:150px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:var(--shadow)}.weather-card{grid-column:span 5}.risk-card{grid-column:span 7}.card-label{color:var(--muted);font-size:.8rem;font-weight:750;text-transform:uppercase;letter-spacing:.8px}.weather-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.weather-icon{font-size:2.4rem}.temp{font-size:3.25rem;font-weight:850;letter-spacing:-2px;line-height:1.2;margin:14px 0 3px}.weather-desc{color:var(--muted)}.weather-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.88rem}.weather-meta b{display:block;font-size:1rem}.risk-banner{display:flex;align-items:center;gap:14px;padding:15px;background:#fff0e5;border-radius:14px;margin:15px 0}.risk-dot{width:13px;height:13px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px #fbe0d0;flex:none}.risk-banner h3{margin:0;color:#9a431b}.risk-banner p{margin:2px 0 0;font-size:.87rem;color:#744b36}.risk-title{font-size:1.15rem;font-weight:850;margin:0}.tip-list{padding:0;margin:15px 0 0;list-style:none;display:grid;gap:10px}.tip-list li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem}.check{width:23px;height:23px;border-radius:8px;background:var(--mint);color:var(--green);display:grid;place-items:center;flex:none;font-weight:900}
+.break-card{grid-column:span 5}.safety-card{grid-column:span 7}.timer{font-size:3rem;font-weight:850;letter-spacing:1px;text-align:center;margin:18px 0 12px;color:var(--forest);font-variant-numeric:tabular-nums}.timer-sub{text-align:center;color:var(--muted);font-size:.88rem}.timer-actions{display:flex;justify-content:center;gap:9px;margin-top:16px;flex-wrap:wrap}.timer-actions button{border-radius:10px;padding:10px 15px;font-weight:800;border:1px solid var(--line);background:white;color:var(--forest)}.timer-actions .start{background:var(--forest);color:white;border-color:var(--forest)}.progress{height:7px;background:#edf1e9;border-radius:99px;overflow:hidden;margin-top:18px}.progress div{height:100%;width:0;background:var(--sun);transition:width .3s}.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.safety-tip{background:#f7f8f2;border-radius:13px;padding:14px}.safety-tip .emoji{font-size:1.45rem}.safety-tip b{display:block;margin:5px 0 3px}.safety-tip p{font-size:.84rem;color:var(--muted);margin:0}.workers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.worker{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}.worker .emoji{font-size:1.8rem}.worker h3{margin:8px 0 4px;font-size:1rem}.worker p{margin:0;color:var(--muted);font-size:.88rem}
+footer{background:#102f21;color:#d6e3d8;padding:28px 0;font-size:.83rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner b{color:white}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:var(--forest);color:white;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--shadow);z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.wrap{padding:0 16px}.nav{height:68px}.demo-pill{display:none}.hero{padding:42px 0 48px}.hero-grid{grid-template-columns:1fr}.sun-card{display:none}.hero h1{letter-spacing:-1.3px}.section-head{align-items:flex-start;flex-direction:column}.weather-card,.risk-card,.break-card,.safety-card{grid-column:span 12}.workers{grid-template-columns:1fr}.weather-meta{gap:12px}.safety-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:390px){.safety-grid{grid-template-columns:1fr}.control{min-width:0;flex:1}.temp{font-size:2.8rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><div class="brandmark">☀</div><div>VeyilGuard<small>HEAT SAFETY • OUTDOOR WORKERS</small></div></div>
+    <div class="navright"><span class="demo-pill">Prototype · Demo data</span><button class="lang" id="langBtn" aria-label="Switch language">தமிழ்</button></div>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-en="Built for the people who work under the sun" data-ta="வெயிலில் உழைப்பவர்களுக்காக">Built for the people who work under the sun</div>
+      <h1 data-en="Work safe. Beat the heat." data-ta="பாதுகாப்பாக வேலை செய்யுங்கள். வெப்பத்திலிருந்து காத்துக்கொள்ளுங்கள்.">Work safe. Beat the heat.</h1>
+      <p data-en="Simple heat-safety guidance, rest reminders, and safer-work planning for farmers, construction teams, and outdoor workers." data-ta="விவசாயிகள், கட்டுமானத் தொழிலாளர்கள் மற்றும் வெளிப்புறத் தொழிலாளர்களுக்கான வெப்ப பாதுகாப்பு வழிகாட்டி மற்றும் ஓய்வு நினைவூட்டல்கள்.">Simple heat-safety guidance, rest reminders, and safer-work planning for farmers, construction teams, and outdoor workers.</p>
+      <div class="hero-actions"><button class="btn-primary" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})" data-en="View safety dashboard ↓" data-ta="பாதுகாப்பு பலகையைப் பார்க்க ↓">View safety dashboard ↓</button><button class="btn-light" id="speakBtn" data-en="🔊 Hear safety tip" data-ta="🔊 பாதுகாப்பு அறிவுரை">🔊 Hear safety tip</button></div>
+    </div>
+    <div class="sun-card"><div class="sun-icon">🌞</div><strong data-en="Your safety comes first" data-ta="உங்கள் பாதுகாப்பே முதன்மை">Your safety comes first</strong><span data-en="Pause • Hydrate • Check on each other" data-ta="ஓய்வு • தண்ணீர் • ஒருவரையொருவர் கவனியுங்கள்">Pause • Hydrate • Check on each other</span></div>
+  </div>
+</section>
+<main class="wrap" id="dashboard">
+  <div class="notice"><span>ⓘ</span><div><b id="dataStatus">Connecting to live weather…</b> <span data-en="Weather data is provided by Open-Meteo. Guidance is informational, not an official warning. Follow local authorities and workplace safety procedures." data-ta="வானிலைத் தரவு Open-Meteo மூலம் வழங்கப்படுகிறது. இது தகவல் வழிகாட்டுதல் மட்டுமே; அதிகாரப்பூர்வ எச்சரிக்கை அல்ல. உள்ளூர் அதிகாரிகள் மற்றும் பணியிட பாதுகாப்பு நடைமுறைகளைப் பின்பற்றவும்.">Weather data is provided by Open-Meteo. Guidance is informational, not an official warning. Follow local authorities and workplace safety procedures.</span></div></div>
+  <div class="section-head">
+    <div><h2 data-en="Safety dashboard" data-ta="பாதுகாப்பு பலகை">Safety dashboard</h2><p data-en="Choose a demo location and work type." data-ta="மாதிரி இடத்தையும் வேலை வகையையும் தேர்ந்தெடுக்கவும்.">Choose a demo location and work type.</p></div>
+    <div class="controls"><select class="control" id="location" aria-label="Location"><option value="chennai">Chennai</option><option value="madurai">Madurai</option><option value="coimbatore">Coimbatore</option></select><select class="control" id="workType" aria-label="Work type"><option value="construction">Construction</option><option value="farming">Farming</option><option value="roadwork">Road work</option></select></div>
+  </div>
+  <div class="grid">
+    <section class="card weather-card">
+      <div class="weather-top"><div><div class="card-label" data-en="Sample weather" data-ta="மாதிரி வானிலை">Sample weather</div><div class="temp"><span id="temp">38</span>°C</div><div class="weather-desc" id="weatherDesc">Hot · Mostly sunny</div></div><div class="weather-icon">☀️</div></div>
+      <div class="weather-meta"><div><span data-en="Humidity" data-ta="ஈரப்பதம்">Humidity</span><b id="humidity">62%</b></div><div><span data-en="Wind" data-ta="காற்று">Wind</span><b id="wind">12 km/h</b></div><div><span data-en="Location" data-ta="இடம்">Location</span><b id="cityName">Chennai</b></div></div>
+    </section>
+    <section class="card risk-card">
+      <div class="card-label" data-en="Safety guidance" data-ta="பாதுகாப்பு வழிகாட்டுதல்">Safety guidance</div>
+      <div class="risk-banner"><div class="risk-dot"></div><div><h3 class="risk-title" id="riskTitle">High heat caution</h3><p id="riskDesc">Take extra care during strenuous outdoor work.</p></div></div>
+      <ul class="tip-list" id="riskTips"><li><span class="check">✓</span><span>Take regular rest breaks in shade.</span></li><li><span class="check">✓</span><span>Drink water frequently; do not wait until thirsty.</span></li><li><span class="check">✓</span><span>Use buddy checks and watch for signs of heat illness.</span></li></ul>
+    </section>
+    <section class="card break-card">
+      <div class="card-label" data-en="Rest-break reminder" data-ta="ஓய்வு நினைவூட்டல்">Rest-break reminder</div>
+      <div class="timer" id="timer">20:00</div>
+      <div class="timer-sub" id="timerStatus" data-en="Demo timer · choose a break interval" data-ta="மாதிரி நேரக் கணிப்பான் · ஓய்வு நேரத்தைத் தேர்ந்தெடுக்கவும்">Demo timer · choose a break interval</div>
+      <div class="controls" style="justify-content:center;margin-top:14px"><select class="control" id="interval" aria-label="Break interval"><option value="10">10 minutes</option><option value="20" selected>20 minutes</option><option value="30">30 minutes</option></select></div>
+      <div class="timer-actions"><button class="start" id="startTimer">Start</button><button id="resetTimer">Reset</button></div>
+      <div class="progress"><div id="progressBar"></div></div>
+    </section>
+    <section class="card safety-card">
+      <div class="card-label" data-en="Everyday safety checklist" data-ta="தினசரி பாதுகாப்புப் பட்டியல்">Everyday safety checklist</div>
+      <div class="safety-grid">
+        <div class="safety-tip"><div class="emoji">💧</div><b data-en="Hydrate often" data-ta="அடிக்கடி தண்ணீர் குடிக்கவும்">Hydrate often</b><p data-en="Keep safe drinking water nearby." data-ta="குடிநீரை அருகில் வைத்திருங்கள்.">Keep safe drinking water nearby.</p></div>
+        <div class="safety-tip"><div class="emoji">🌳</div><b data-en="Rest in shade" data-ta="நிழலில் ஓய்வெடுக்கவும்">Rest in shade</b><p data-en="Take breaks in a cooler place." data-ta="குளிர்ச்சியான இடத்தில் ஓய்வு எடுக்கவும்.">Take breaks in a cooler place.</p></div>
+        <div class="safety-tip"><div class="emoji">🧢</div><b data-en="Cover up" data-ta="உடலைப் பாதுகாக்கவும்">Cover up</b><p data-en="Use suitable clothing and sun protection." data-ta="பொருத்தமான உடை மற்றும் வெயில் பாதுகாப்பைப் பயன்படுத்தவும்.">Use suitable clothing and sun protection.</p></div>
+        <div class="safety-tip"><div class="emoji">🤝</div><b data-en="Check on others" data-ta="மற்றவர்களையும் கவனியுங்கள்">Check on others</b><p data-en="Tell a supervisor if someone feels unwell." data-ta="யாருக்காவது உடல்நலக்குறைவு ஏற்பட்டால் மேற்பார்வையாளரிடம் தெரிவிக்கவும்.">Tell a supervisor if someone feels unwell.</p></div>
+      </div>
+    </section>
+  </div>
+  <div class="section-head"><div><h2 data-en="Designed for outdoor teams" data-ta="வெளிப்புறப் பணிக்குழுக்களுக்காக">Designed for outdoor teams</h2><p data-en="A simple tool to support safer decisions—not replace official guidance." data-ta="பாதுகாப்பான முடிவுகளுக்கு உதவும் எளிய கருவி; அதிகாரப்பூர்வ வழிகாட்டுதலுக்கு மாற்றாகாது.">A simple tool to support safer decisions—not replace official guidance.</p></div></div>
+  <div class="workers">
+    <article class="worker"><div class="emoji">🌾</div><h3 data-en="Farmers" data-ta="விவசாயிகள்">Farmers</h3><p data-en="Plan outdoor tasks with heat awareness and planned breaks." data-ta="வெப்பத்தை கருத்தில் கொண்டு வெளிப்புறப் பணிகளையும் ஓய்வையும் திட்டமிடுங்கள்.">Plan outdoor tasks with heat awareness and planned breaks.</p></article>
+    <article class="worker"><div class="emoji">🏗️</div><h3 data-en="Construction workers" data-ta="கட்டுமானத் தொழிலாளர்கள்">Construction workers</h3><p data-en="Encourage hydration, shade, and team check-ins." data-ta="தண்ணீர், நிழல் மற்றும் குழு நல விசாரிப்பை ஊக்குவிக்கவும்.">Encourage hydration, shade, and team check-ins.</p></article>
+    <article class="worker"><div class="emoji">🦺</div><h3 data-en="Supervisors" data-ta="மேற்பார்வையாளர்கள்">Supervisors</h3><p data-en="Use reminders to support safer schedules and worker check-ins." data-ta="பாதுகாப்பான அட்டவணை மற்றும் தொழிலாளர் நல விசாரிப்புக்கு நினைவூட்டல்களைப் பயன்படுத்தவும்.">Use reminders to support safer schedules and worker check-ins.</p></article>
+  </div>
+</main>
+<footer><div class="wrap footer-inner"><div><b>VeyilGuard</b> · Healthcare & Wellbeing</div><div data-en="Student prototype · Demo weather data · Not an official warning system" data-ta="மாணவர் முன்மாதிரி · மாதிரி வானிலைத் தரவு · அதிகாரப்பூர்வ எச்சரிக்கை அமைப்பு அல்ல">Student prototype · Demo weather data · Not an official warning system</div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const sample={
+ chennai:{temp:38,humidity:62,wind:12,desc:"Sample data",risk:"Heat awareness",riskDesc:"Use precautions during outdoor work."},
+ madurai:{temp:40,humidity:48,wind:9,desc:"Sample data",risk:"Heat awareness",riskDesc:"Use precautions during outdoor work."},
+ coimbatore:{temp:34,humidity:58,wind:14,desc:"Sample data",risk:"Heat awareness",riskDesc:"Use precautions during outdoor work."}
+};
+const cityCoords={
+ chennai:{lat:13.0827,lon:80.2707},
+ madurai:{lat:9.9252,lon:78.1198},
+ coimbatore:{lat:11.0168,lon:76.9558}
+};
+const tipsEn=["Take regular rest breaks in shade.","Drink water frequently; do not wait until thirsty.","Use buddy checks and watch for signs of heat illness."];
+const tipsTa=["நிழலில் அடிக்கடி ஓய்வு எடுக்கவும்.","தாகம் எடுக்கும் வரை காத்திருக்காமல் தண்ணீர் குடிக்கவும்.","ஒருவரையொருவர் கவனித்து, உடல்நலக்குறைவு அறிகுறிகளை கவனிக்கவும்."];
+const locationEl=document.getElementById("location"),langBtn=document.getElementById("langBtn");let tamil=false;
+function weatherDescription(code){
+ if(code===0)return "Clear sky";
+ if([1,2,3].includes(code))return "Partly cloudy";
+ if([45,48].includes(code))return "Fog";
+ if([51,53,55,56,57].includes(code))return "Drizzle";
+ if([61,63,65,66,67,80,81,82].includes(code))return "Rain";
+ if([71,73,75,77,85,86].includes(code))return "Snow";
+ if([95,96,99].includes(code))return "Thunderstorm";
+ return "Current conditions";
+}
+function renderSafetyGuidance(temp, apparent){
+ const guidanceTemp = Number.isFinite(apparent) ? apparent : temp;
+ let title="Heat awareness", desc="Continue precautions and monitor how everyone feels.";
+ if(guidanceTemp>=40){title="Extra heat caution";desc="Consider reducing strenuous work and taking more rest in shade."}
+ else if(guidanceTemp>=35){title="Heat caution";desc="Take extra care during strenuous outdoor work and rest regularly."}
+ document.getElementById("riskTitle").textContent=tamil?({ "Extra heat caution":"கூடுதல் வெப்ப கவனம்","Heat caution":"வெப்ப கவனம்","Heat awareness":"வெப்ப விழிப்புணர்வு"}[title]):title;
+ document.getElementById("riskDesc").textContent=tamil?"வெளிப்புறப் பணியில் கூடுதல் கவனம் செலுத்தவும்.":desc;
+ document.getElementById("riskTips").innerHTML=(tamil?tipsTa:tipsEn).map(t=>'<li><span class="check">✓</span><span>'+t+'</span></li>').join("");
+}
+async function updateWeather(){
+ const city=locationEl.value, coords=cityCoords[city], status=document.getElementById("dataStatus");
+ document.getElementById("cityName").textContent=locationEl.options[locationEl.selectedIndex].text;
+ status.textContent=tamil?"நேரடி வானிலைத் தரவைப் பெறுகிறது…":"Loading live weather…";
+ try{
+  const url=`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,apparent_temperature,weather_code&timezone=Asia%2FKolkata`;
+  const response=await fetch(url);
+  if(!response.ok)throw new Error("Weather request failed");
+  const data=await response.json();
+  if(!data.current)throw new Error("No current weather data");
+  const c=data.current, temp=Math.round(c.temperature_2m), apparent=Number(c.apparent_temperature);
+  document.getElementById("temp").textContent=temp;
+  document.getElementById("humidity").textContent=Math.round(c.relative_humidity_2m)+"%";
+  document.getElementById("wind").textContent=Math.round(c.wind_speed_10m)+" km/h";
+  document.getElementById("weatherDesc").textContent=tamil?"வானிலை: "+weatherDescription(c.weather_code):weatherDescription(c.weather_code);
+  status.textContent=tamil?"நேரடி வானிலை · Open-Meteo":"Live weather · Open-Meteo";
+  renderSafetyGuidance(temp,apparent);
+ }catch(error){
+  const d=sample[city];
+  document.getElementById("temp").textContent=d.temp;
+  document.getElementById("humidity").textContent=d.humidity+"%";
+  document.getElementById("wind").textContent=d.wind+" km/h";
+  document.getElementById("weatherDesc").textContent=tamil?"மாதிரி தரவு":"Sample fallback data";
+  status.textContent=tamil?"நேரடி தரவு கிடைக்கவில்லை — காட்டப்படும் எண்கள் மாதிரி தரவு":"Live data unavailable — showing sample data";
+  renderSafetyGuidance(d.temp,d.temp);
+ }
+}
+locationEl.addEventListener("change",updateWeather);
+langBtn.addEventListener("click",()=>{tamil=!tamil;document.documentElement.lang=tamil?"ta":"en";document.querySelectorAll("[data-en]").forEach(el=>{el.textContent=tamil?el.dataset.ta:el.dataset.en});langBtn.textContent=tamil?"English":"தமிழ்";document.getElementById("weatherDesc").textContent=tamil?"வெப்பம் · வெயில்":sample[locationEl.value].desc;document.getElementById("timerStatus").textContent=tamil?"மாதிரி நேரக் கணிப்பான் · ஓய்வு நேரத்தைத் தேர்ந்தெடுக்கவும்":"Demo timer · choose a break interval";document.getElementById("startTimer").textContent=tamil?(running?"நிறுத்து":"தொடங்கு"):(running?"Pause":"Start");document.getElementById("resetTimer").textContent=tamil?"மீட்டமை":"Reset";document.getElementById("interval").options[0].text=tamil?"10 நிமிடங்கள்":"10 minutes";document.getElementById("interval").options[1].text=tamil?"20 நிமிடங்கள்":"20 minutes";document.getElementById("interval").options[2].text=tamil?"30 நிமிடங்கள்":"30 minutes";updateWeather()});
+const speakBtn=document.getElementById("speakBtn");speakBtn.addEventListener("click",()=>{const message=tamil?"அடிக்கடி தண்ணீர் குடிக்கவும். நிழலில் ஓய்வு எடுக்கவும். யாருக்காவது உடல்நலக்குறைவு ஏற்பட்டால் உடனடியாக உதவி பெறவும்.":"Drink water frequently. Rest in the shade. If anyone feels unwell, seek help promptly.";if("speechSynthesis" in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(message);u.lang=tamil?"ta-IN":"en-IN";speechSynthesis.speak(u);showToast(tamil?"பாதுகாப்பு அறிவுரை வாசிக்கப்படுகிறது":"Reading safety tip")}else showToast(tamil?"இந்த உலாவியில் குரல் வசதி இல்லை":"Voice playback is not supported in this browser")});
+let total=1200,remaining=1200,running=false,intervalId=null;
+const timer=document.getElementById("timer"),statusEl=document.getElementById("timerStatus"),startBtn=document.getElementById("startTimer"),resetBtn=document.getElementById("resetTimer"),intervalEl=document.getElementById("interval"),progress=document.getElementById("progressBar");
+function renderTimer(){timer.textContent=String(Math.floor(remaining/60)).padStart(2,"0")+":"+String(remaining%60).padStart(2,"0");progress.style.width=((total-remaining)/total*100)+"%";startBtn.textContent=tamil?(running?"நிறுத்து":"தொடங்கு"):(running?"Pause":remaining===0?"Start":"Start");}
+function pauseTimer(){running=false;if(intervalId){clearInterval(intervalId);intervalId=null}startBtn.textContent=tamil?"தொடங்கு":"Start"}
+startBtn.addEventListener("click",()=>{if(running){pauseTimer();statusEl.textContent=tamil?"நேரம் நிறுத்தப்பட்டது":"Timer paused";return}if(remaining<=0){remaining=total}running=true;startBtn.textContent=tamil?"நிறுத்து":"Pause";statusEl.textContent=tamil?"நேரம் இயங்குகிறது — இடைவேளையில் ஓய்வெடுக்கவும்":"Timer running — rest when the break is due";intervalId=setInterval(()=>{remaining--;renderTimer();if(remaining<=0){pauseTimer();statusEl.textContent=tamil?"ஓய்வு நேரம்! பாதுகாப்பான இடத்தில் ஓய்வெடுக்கவும்.":"Break time! Rest in a safe, shaded place.";showToast(tamil?"ஓய்வு நேரம் — தண்ணீர் குடிக்கவும்":"Break time — drink water");if("Notification"in window&&Notification.permission==="granted")new Notification("VeyilGuard: Break time",{body:"Rest in a safe, shaded place and drink water."})}},1000)});
+resetBtn.addEventListener("click",()=>{pauseTimer();total=Number(intervalEl.value)*60;remaining=total;renderTimer();statusEl.textContent=tamil?"நேரம் மீட்டமைக்கப்பட்டது":"Timer reset"});
+intervalEl.addEventListener("change",()=>{pauseTimer();total=Number(intervalEl.value)*60;remaining=total;renderTimer();statusEl.textContent=tamil?"ஓய்வு நேரம் தேர்ந்தெடுக்கப்பட்டது":"Break interval selected"});
+let toastTimeout;function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove("show"),2800)}
+updateWeather();renderTimer();
+</script>
+</body>
+</html>
